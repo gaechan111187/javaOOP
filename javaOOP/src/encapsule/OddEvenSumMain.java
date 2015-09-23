@@ -23,5 +23,6 @@ public class OddEvenSumMain {
 		OddEvenSum OddEven = new OddEvenSum();
 		String res = OddEven.OesGet(num1, num2);
 		System.out.println(res);
+		
 	}
 }
