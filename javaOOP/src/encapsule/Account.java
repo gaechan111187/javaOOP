@@ -1,4 +1,7 @@
 package encapsule;
+
+import java.util.Scanner;
+
 /**
  * @file_name : Account.java 
  * @author    : chanhok61@daum.net
@@ -6,7 +9,7 @@ package encapsule;
  * @story     : 통장 개설 프로그램
  */
 public class Account {
-	private String accountNo;//계좌번호
+	private int accountNo;//계좌번호
 	private String ownerName;//계좌주인
 	private String password; //비밀번호
 	private int restmoney;//잔액
@@ -21,7 +24,31 @@ public class Account {
 	 * 비번도 설정합니다.
 	 * 다만, 잔액은 통장이 만들어진 이후에 입금이 되겠지요.
 	 */
-	public void deposit(int money){
+	Scanner scanner = new Scanner(System.in);
+	public void name() {
+		System.out.println("이름");
+		this.ownerName = scanner.next();
+		System.out.println("비번");
+		this.password = scanner.next();
+		System.out.println("/n"+toString());
+		
+		
+	}
+	public void deposit(){
+		System.out.println("입금 할 금액을 입력하세요.");
+		int money = scanner.nextInt();
+		if (money<=0) {
+			System.out.println("금액을 다시 입력하세요.");
+			money = scanner.nextInt();
+			this.restmoney += money;
+	 		System.out.println("\n"+toString());
+		}
+		else {
+			this.restmoney += money;
+	 		System.out.println("\n"+toString());
+		}
+ 		
+		
 		/**
 		 * 입금 매소드 +=
 		 * 유효성 체크
@@ -30,7 +57,22 @@ public class Account {
 		 * 막기 위한 방어코딩
 		 */
 	}
-	public void withdraw(int money){
+	public void withdraw(){
+		System.out.println("출금 할 금액을 입력하세요.");
+		int money = scanner.nextInt();
+		if (this.restmoney<money) {
+			System.out.println("\n잔고가 부족합니다.");
+			System.out.println("\n"+toString());
+			System.out.println("출금 할 금액을 입력하세요.");
+			money = scanner.nextInt();
+			this.restmoney -= money;
+			 System.out.println("\n"+toString());
+		}
+		else {
+			this.restmoney -= money;
+			 System.out.println("\n"+toString());
+		}
+		
 		/**
 		 * 출금메소드 -=
 		 */
@@ -39,11 +81,38 @@ public class Account {
 	public String toString() {
 		return "입출금 계좌\n"
 				+"["+BANK_NAME+"]\n"
-				+"계좌번호 :"+"???"+"\n"
-				+"계좌명 :"+"????"+"\n"
+				+"계좌번호 :"+getAccountNo()+"\n"
+				+"계좌명 :"+getOwnerName()+"\n"
 				+"비번: ******\n"
-				+"잔액:"+"???"+"\n"
-				+"으로 통장이 개설되었습니다.";
+				+"잔액:"+getRestmoney()+"\n";
 		
+	}
+	public Account() {
+		this.accountNo = (int) ((Math.random()*100000)+100000);
+		
+	}
+	public int getAccountNo() {
+		return accountNo;
+	}
+	public String getOwnerName() {
+		return ownerName;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public int getRestmoney() {
+		return restmoney;
+	}
+	public void setAccountNo() {
+		this.accountNo = accountNo;
+	}
+	public void setOwnerName(String ownerName) {
+		this.ownerName = ownerName;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public void setRestmoney(int restmoney) {
+		this.restmoney = restmoney;
 	}
 }
