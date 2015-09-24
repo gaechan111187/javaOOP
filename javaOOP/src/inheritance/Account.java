@@ -1,4 +1,4 @@
-package encapsule;
+package inheritance;
 
 import java.util.Scanner;
 
@@ -64,8 +64,7 @@ public class Account {
 	}
 	@Override
 	public String toString() {
-		return "입출금 계좌\n"
-				+"["+BANK_NAME+"]\n"
+		return "["+BANK_NAME+"]\n"
 				+"계좌번호 :"+getAccountNo()+"\n"
 				+"계좌명 :"+getOwnerName()+"\n"
 				+"비번: ******\n"

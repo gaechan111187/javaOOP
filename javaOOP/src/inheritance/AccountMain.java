@@ -1,4 +1,4 @@
-package encapsule;
+package inheritance;
 
 import java.util.Scanner;
 
@@ -13,15 +13,21 @@ public class AccountMain {
 	public static final String BANK_NAME = "한빛뱅크";
 	 */
 	public static void main(String[] args) {
-		Account account = new Account();
+		
+		//Account account = new Account();
+		MinusAccount maccount = new MinusAccount();
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("계좌를 생성합니다.\n이름을 입력하세요");
 		String ownerName = scanner.next();
 		System.out.println("비밀번호를 입력하세요");
 		String password = scanner.next();
-		account.setOwnerName(ownerName);
-	    account.setPassword(password);
-		System.out.println("\n"+account.toString());
+		System.out.println("대출 한도를 정하세요(300만까지 가능)");
+		int limit = scanner.nextInt();
+		maccount.setLimit(limit);
+		maccount.setOwnerName(ownerName);
+	    maccount.setPassword(password);
+		System.out.println("\n"+maccount.toString());
+		
 	    
 		while (true) {
 			System.out.println("업무를 선택하세요");
@@ -31,15 +37,15 @@ public class AccountMain {
 			case 1:
 				System.out.println("입급할금액 입력");
 			    int money = scanner.nextInt();
-				account.deposit(money);
+				maccount.deposit(money);
 				break;
 			case 2:
 				System.out.println("출금할금액 입력");
 				int money1 = scanner.nextInt();
-			    account.withdraw(money1);
+			    maccount.withdraw(money1);
 				break;
 			case 3:
-				System.out.println(account.toString());
+				System.out.println(maccount.toString());
 				break;
 			default:
 				return;

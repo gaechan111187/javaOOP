@@ -1,4 +1,4 @@
-package encapsule;
+package polymorphism;
 
 import java.util.Scanner;
 
@@ -9,10 +9,10 @@ import java.util.Scanner;
  * @story     : 통장 개설 프로그램
  */
 public class Account {
-	private int accountNo;//계좌번호
-	private String ownerName;//계좌주인
-	private String password; //비밀번호
-	private int restmoney;//잔액
+	protected int accountNo;//계좌번호
+	protected String ownerName;//계좌주인
+	protected String password; //비밀번호
+	protected int restmoney;//잔액
 	public static final String BANK_NAME = "한빛뱅크";
 	
 	/**
@@ -27,45 +27,10 @@ public class Account {
 	public void password(){
 		
 	}
-		
-	public void deposit(int money){
-		System.out.println("입금 할 금액을 입력하세요.");
-		if (money<=0) {
-			System.out.println("금액을 다시 입력하세요.");
-	 		System.out.println("\n"+toString());
-		}
-		else {
-			this.restmoney += money;
-	 		System.out.println("\n"+toString());
-		}
- 		
-		
-		/**
-		 * 입금 매소드 +=
-		 * 유효성 체크
-		 * 입금액이 혹시 0이나 0보다 작은 금액을
-		 * 파라미터로 던질 경우 에러가 발생하는 것을
-		 * 막기 위한 방어코딩
-		 */
-	}
-	public void withdraw(int money1){
-		if (this.restmoney<money1) {
-			System.out.println("\n잔고가 부족합니다.");
-			System.out.println("\n"+toString());
-		}
-		else {
-			this.restmoney -= money1;
-			 System.out.println("\n"+toString());
-		}
-		
-		/**
-		 * 출금메소드 -=
-		 */
-	}
+	
 	@Override
 	public String toString() {
-		return "입출금 계좌\n"
-				+"["+BANK_NAME+"]\n"
+		return "["+BANK_NAME+"]\n"
 				+"계좌번호 :"+getAccountNo()+"\n"
 				+"계좌명 :"+getOwnerName()+"\n"
 				+"비번: ******\n"
