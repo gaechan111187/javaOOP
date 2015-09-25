@@ -24,6 +24,7 @@ public class Account {
 	 * 비번도 설정합니다.
 	 * 다만, 잔액은 통장이 만들어진 이후에 입금이 되겠지요.
 	 */
+	
 	public void password(){
 		
 	}
@@ -38,7 +39,7 @@ public class Account {
 		
 	}
 	public Account() {
-		this.accountNo = (int) ((Math.random()*999999)+100000);
+		
 		
 	}
 	public int getAccountNo() {
@@ -53,8 +54,8 @@ public class Account {
 	public int getRestmoney() {
 		return restmoney;
 	}
-	public void setAccountNo() {
-		this.accountNo = accountNo;
+	public void setAccountNo(int accountNo) {
+		this.accountNo = (int) ((Math.random()*999999)+100000);
 	}
 	public void setOwnerName(String ownerName) {
 		this.ownerName = ownerName;

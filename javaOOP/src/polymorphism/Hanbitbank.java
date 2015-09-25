@@ -6,7 +6,7 @@ import org.omg.Messaging.SyncScopeHelper;
 
 public class Hanbitbank {
 	public static void main(String[] args) {
-		BankService service = new BankService();
+		MBankService service = new MBankService();
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("입금액입력");
 		while(true){
