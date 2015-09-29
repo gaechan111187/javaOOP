@@ -38,10 +38,16 @@ public class Account {
 				+"잔액:"+getRestmoney()+"\n";
 		
 	}
-	public Account() {
-		
-		
+	public Account(String name) {
+		this.password = "";
+		this.ownerName="";
+		this.accountNo=0;
+		this.restmoney=0;
 	}
+	public Account() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getAccountNo() {
 		return accountNo;
 	}
@@ -55,7 +61,7 @@ public class Account {
 		return restmoney;
 	}
 	public void setAccountNo(int accountNo) {
-		this.accountNo = (int) ((Math.random()*999999)+100000);
+		this.accountNo = accountNo;
 	}
 	public void setOwnerName(String ownerName) {
 		this.ownerName = ownerName;
