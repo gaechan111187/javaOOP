@@ -38,12 +38,12 @@ public class Account {
 				+"잔액:"+getRestmoney()+"\n";
 		
 	}
-	public Account(String name) {
-		this.password = "";
-		this.ownerName="";
-		this.accountNo=0;
-		this.restmoney=0;
-	}
+//	public Account(String name) {
+	//	this.password = "";
+	//	this.ownerName="";
+	//	this.accountNo=0;
+	//	this.restmoney=0;
+	//}
 	public Account() {
 		// TODO Auto-generated constructor stub
 	}

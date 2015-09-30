@@ -67,24 +67,26 @@ public class AdminService implements Admin{
 	}
 	@Override
 	public String closeAccount(int accountNo) {
-		Account cancelAccount = null;
 		String result = "요청하신 해지건이 완료되었습니다.";
 		for (int i = 0; i < count; i++) {
-			if (accountList[i].getAccountNo()==(accountNo)) {
-				cancelAccount = accountList[i];
-				count--;
-			}
+			if (accountNo == accountList[i].getAccountNo()) {
+				System.out.println("카운트 : " + count + " i값 : " + i);
+				accountList[i] = accountList[count-1];
+			}	
 		}
+		accountList[count-1] = null ;
+		count--;
 		return result;
 	}
 
 	@Override
 	public String openAccount(int accountNo, String name, int restMoney) {
-		Account account = new Account(name);
+		Account account = new Account();
 		String msg="";
 		account.setAccountNo(accountNo);
 		account.setOwnerName(name);
 		account.setRestmoney(restMoney);
+		
 		accountList[count] = account;
 		count++;
 		msg = account.toString();
