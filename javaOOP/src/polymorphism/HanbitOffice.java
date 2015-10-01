@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 public class HanbitOffice {
 	public static void main(String[] args) {
-		AdminService service = new AdminService(1000);
+		Admin service = new AdminService(1000);
+		// 인터페이스 객체 = new 인터페이스를 구현한 클래스생성자
+	
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("입금액입력");
 		while (true) {
@@ -37,7 +39,7 @@ public class HanbitOffice {
 				} break;
 
 			case 4:
-				System.out.println("총 계좌수는 "+service.getCount()+"개입니다.");
+				System.out.println("총 계좌수는 "+((AdminService) service).getCount()+"개입니다.");
 				break;
 
 			case 5:
