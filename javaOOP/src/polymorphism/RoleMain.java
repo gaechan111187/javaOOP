@@ -29,8 +29,13 @@ public class RoleMain {
 }
 interface Human{
 	public void role();
+	
 }
-class Man implements Human{
+interface Animal{
+	public void eat();
+	
+}
+class Man implements Human,Animal{
 	private String name; //은닉화
 	
 
@@ -44,6 +49,11 @@ public String getName() {
 	@Override
 	public void role() {
 		System.out.println("남자역할");
+	}
+	@Override
+	public void eat() {
+		// TODO Auto-generated method stub
+		
 	}
 }
 class Husband extends Man{

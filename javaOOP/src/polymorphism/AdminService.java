@@ -55,9 +55,9 @@ public class AdminService implements Admin{
 		Account[] tempList = new Account[tempCount];
 		tempCount = 0;
 		for (int i = 0; i < count; i++) {
-			if (accountList[i].getOwnerName().equals(name)) {
+		//	if (accountList[i].getOwnerName().equals(name)) {
 				tempList[tempCount++]=accountList[i];
-			}
+			//}
 		}
 	return tempList;
 	}
